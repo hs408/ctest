@@ -1,0 +1,28 @@
+import json
+import boto3
+import os
+
+
+def lambda_handler(event, context):
+    s3 = boto3.resource('s3')
+    #'test_code.py'- script file to be executed in Lambda
+    #'test_code.py'- script file to be executed in Lambda
+    #'test_code.py'- script file to be executed in Lambda
+    #'test_code.py'- script file to be executed in Lambda
+    #'test_code.py'- script file to be executed in Lambda
+    keys = ['22.sh']
+    for KEY in keys:
+        local_file_name = '/tmp/'+KEY
+        #BUCKET_NAME - name of the bucket containing the script file
+        BUCKET_NAME = bucket200000
+        s3.Bucket(BUCKET_NAME).download_file(KEY, local_file_name)
+    #Execution of script file and storing of result in "output.txt"
+    os.system('echo $(bash /tmp/22.sh) > /tmp/output.txt')
+    with open("/tmp/output.txt",'r') as f:
+        print(f.read())
+    #uploading the result file to S3
+    s3.meta.client.upload_file('/tmp/output.txt', BUCKET_NAME, 'output.txt')
+    return {
+        'statusCode': 200,
+        'body': json.dumps('Hello from Lambda!')
+    }
