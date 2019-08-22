@@ -1,0 +1,6 @@
+exports.handler = (event, context, callback) => {
+    // TODO implement
+    const income = event.income;
+    callback(null, income / 10);
+};
+
