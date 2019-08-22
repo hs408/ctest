@@ -28,8 +28,8 @@ jobs:
           name: Deploy Functions
           command: |
             cd functions
-            bash ../.circleci/deploy.sh echo
-            bash ../.circleci/deploy.sh hello-world
+            ../.circleci/deploy.sh echo
+            ../.circleci/deploy.sh hello-world
   build_stg:
     working_directory: ~/project
     docker:
@@ -58,8 +58,8 @@ jobs:
           name: Deploy Functions
           command: |
             cd functions
-            bash ../.circleci/deploy.sh echo
-            bash ../.circleci/deploy.sh hello-world
+            ../.circleci/deploy.sh echo
+            ../.circleci/deploy.sh hello-world
   build_prod:
     working_directory: ~/project
     docker:
@@ -88,8 +88,8 @@ jobs:
           name: Deploy Functions
           command: |
             cd functions
-            bash ../.circleci/deploy.sh echo
-            bash ../.circleci/deploy.sh hello-world
+            ../.circleci/deploy.sh echo
+            ../.circleci/deploy.sh hello-world
 workflows:
   version: 2
   full:
