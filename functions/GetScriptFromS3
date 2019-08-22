@@ -7,6 +7,8 @@ import os
 #       returned 5. make update to prod script , push to git, and then verify again and see if it says 
 #       6 for next version.
 # NOTE : went back to 4 not 6. Running again
+# changed to 6
+# running again , expecting 7
 
 def lambda_handler(event, context):
     s3 = boto3.resource('s3')
