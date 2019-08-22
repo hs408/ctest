@@ -9,6 +9,7 @@ import os
 # NOTE : went back to 4 not 6. Running again
 # changed to 6
 # running again , expecting 7
+# running again , expecting 8
 
 def lambda_handler(event, context):
     s3 = boto3.resource('s3')
