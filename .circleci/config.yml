@@ -29,7 +29,7 @@ jobs:
           command: |
             cd functions
             ../.circleci/deploy.sh GetScriptFromS3
-            ../.circleci/deploy.sh StopEC2Instances
+            #../.circleci/deploy.sh StopEC2Instances
   build_stg:
     working_directory: ~/project
     docker:
@@ -58,8 +58,8 @@ jobs:
           name: Deploy Functions
           command: |
             cd functions
-            ../.circleci/deploy.sh echo
-            ../.circleci/deploy.sh hello-world
+            ../.circleci/deploy.sh GetScriptFromS3
+            #../.circleci/deploy.sh hello-world
   build_prod:
     working_directory: ~/project
     docker:
@@ -88,8 +88,8 @@ jobs:
           name: Deploy Functions
           command: |
             cd functions
-            ../.circleci/deploy.sh echo
-            ../.circleci/deploy.sh hello-world
+            ../.circleci/deploy.sh GetScriptFromS3
+            #../.circleci/deploy.sh hello-world
 workflows:
   version: 2
   full:
