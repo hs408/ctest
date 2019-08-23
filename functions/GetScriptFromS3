@@ -12,6 +12,7 @@ import os
 # running again , expecting 8
 # running again , 8 or 8   thin 
 # got locked out: re-running
+# another test
 
 def lambda_handler(event, context):
     s3 = boto3.resource('s3')
