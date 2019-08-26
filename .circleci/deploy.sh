@@ -72,5 +72,5 @@ aws lambda remove-permission --function-name arn:aws:lambda:$AWS_REGION:$AWS_ACC
 echo "Creating API Gateway permission"
 aws lambda add-permission --function-name arn:aws:lambda:$AWS_REGION:$AWS_ACCOUNT_ID:function:$current_build:$GIT_SHA --source-arn "arn:aws:execute-api:$AWS_REGION:$AWS_ACCOUNT_ID:$AWS_REST_API_ID/*/*/$current_function" --principal apigateway.amazonaws.com --statement-id $STATEMENT_ID --action lambda:InvokeFunction
 echo "Creating deployment"
-aws apigateway create-deployment --rest-api-id $AWS_REST_API_ID --stage-name default
+aws apigateway create-deployment --rest-api-id $AWS_REST_API_ID --stage-name default --debug
 echo "Finished"
